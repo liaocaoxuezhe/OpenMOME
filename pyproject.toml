@@ -1,0 +1,23 @@
+[project]
+name = "openmome"
+version = "0.1.0"
+description = "本地播客/视频逐字稿与分析笔记工具（小宇宙 / YouTube / B站）"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "httpx>=0.27",
+    "yt-dlp>=2025.10.0",
+    "python-dotenv>=1.0",
+    "openai>=1.40",
+    "mlx-qwen3-asr[diarize]>=0.4.4",
+]
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["test"]

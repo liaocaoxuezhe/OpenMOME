@@ -1,0 +1,94 @@
+# ============================================================
+# OpenMOME .gitignore
+# 原则：只提交「源码 / 文档 / 配置模板 / 测试夹具」，
+#       一切密钥、运行数据、模型缓存、下载的媒体文件都不进仓库。
+# ============================================================
+
+# ---------- 密钥与本地配置（最重要，务必保留）----------
+.env
+.env.*
+!.env.example
+
+# ---------- Python / uv ----------
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+.python-version
+uv.toml
+
+# ---------- 运行数据（SQLite + 每个任务的音频/转写结果）----------
+/data/
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# ---------- 下载与转写的媒体/中间产物 ----------
+*.wav
+*.mp3
+*.m4a
+*.aac
+*.flac
+*.ogg
+*.opus
+*.mp4
+*.mkv
+*.webm
+*.ts
+*.part
+*.ytdl
+*.temp
+
+# 测试夹具里的样例音视频要进仓库（体积小，供单测使用）
+!test/fixtures/**/*.wav
+!test/fixtures/**/*.mp3
+!test/fixtures/**/*.m4a
+!test/fixtures/**/*.srt
+!test/fixtures/**/*.vtt
+!test/fixtures/**/*.json
+
+# ---------- 测试 / 质量工具产物 ----------
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+.coverage.*
+htmlcov/
+test/tmp/
+test/output/
+test/tasks/
+*.log
+/logs/
+
+# ---------- 模型缓存（本机实际在 ~/.cache/huggingface，此处兜底）----------
+/.cache/
+/models/
+*.safetensors
+*.bin
+*.mlx
+
+# ---------- 编辑器 / 操作系统 ----------
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.idea/
+.vscode/
+*.swp
+*~
+
+# ---------- 临时文件 ----------
+*.tmp
+*.bak
+/tmp/
+/scratch/
+
+# ---------- 本地 AI 助手配置 ----------
+.claude/
+CLAUDE.local.md
